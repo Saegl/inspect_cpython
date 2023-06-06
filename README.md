@@ -15,3 +15,10 @@ python -m ast example_programs/hello.py
 ```bash
 python -m dis example_programs/hello.py
 ```
+
+
+## Compile to bytecode
+
+```bash
+python -m py_compile example_programs/hello.py
+```
