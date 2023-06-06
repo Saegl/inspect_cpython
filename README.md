@@ -22,3 +22,11 @@ python -m dis example_programs/hello.py
 ```bash
 python -m py_compile example_programs/hello.py
 ```
+
+
+## Compile to bytecode with marshal
+
+```bash
+python -m compiler.py example_programs/hello.py output.pyc
+python output.pyc
+```
