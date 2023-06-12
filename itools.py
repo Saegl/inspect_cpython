@@ -1,11 +1,13 @@
 import ast
 import argparse
 import dis
+import tokenize
 
 
 parser = argparse.ArgumentParser()
 parser.add_argument('input')
 parser.add_argument('--source', action='store_true')
+parser.add_argument('--tokenize', action='store_true')
 parser.add_argument('--ast', action='store_true')
 parser.add_argument('--co', action='store_true')
 parser.add_argument('--dis', action='store_true')
@@ -21,6 +23,25 @@ if args.source:
     print(f"Loaded file {args.input}")
     print('=========================')
     print(f"RAW BYTES {source}")
+    print('=========================')
+    print('\n\n\n')
+
+
+if args.tokenize:
+    print('=========================')
+    print(f"Loaded file {args.input}")
+    print('=========================')
+    with open(args.input, 'rb') as f:
+        tokens = list(tokenize.tokenize(f.readline))
+
+    # Output the tokenization
+    for token in tokens:
+        token_type = token.type
+        # if args.exact:  # What are exact types?
+        #     token_type = token.exact_type
+        token_range = "%d,%d-%d,%d:" % (token.start + token.end)
+        print("%-20s%-15s%-15r" %
+                (token_range, tokenize.tok_name[token_type], token.string))
     print('=========================')
     print('\n\n\n')
 
