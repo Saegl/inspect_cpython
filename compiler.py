@@ -3,6 +3,7 @@ import argparse
 
 
 cmdparser = argparse.ArgumentParser()
+cmdparser.add_argument('--showbytes', action='store_true')
 cmdparser.add_argument('input')
 cmdparser.add_argument('output')
 
@@ -30,3 +31,6 @@ fdata.extend(marshal.dumps(code))
 
 with open(args.output, mode='wb') as f:
     f.write(fdata)
+
+if args.showbytes:
+    print("WRITTEN BYTES:", bytes(fdata))
