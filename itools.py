@@ -67,7 +67,6 @@ if args.co:
     print('=========================')
     print("Code object data")
     print('=========================')
-    print(dir(codeobj))
     print("Name:", codeobj.co_name)
     print("Consts:")
     for i, const in enumerate(codeobj.co_consts):
