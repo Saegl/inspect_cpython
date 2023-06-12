@@ -30,3 +30,11 @@ python -m py_compile example_programs/hello.py
 python -m compiler.py example_programs/hello.py output.pyc
 python output.pyc
 ```
+
+# All in one inspection tools
+
+Disassembler, AST and others in one script. See `python itools.py --help` for options.
+
+```bash
+python itools.py example_programs/hello.py
+```
